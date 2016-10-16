@@ -1,0 +1,10 @@
+<ui-view>
+    <table class="table table-inbox table-hover">
+        <tbody>
+            <tr ui-sref="mailbox.mail({ mailId: mail._id })" ng-repeat="mail in $ctrl.mailbox">
+                <td class="view-message  dont-show">{{mail.to}}</td>
+                <td class="view-message ">{{mail.subject}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ui-view>
