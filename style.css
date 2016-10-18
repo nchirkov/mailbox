@@ -122,6 +122,9 @@ ul.labels-info li {
 ul.labels-info li a {
     border-radius: 0;
     color: #6a6a6a;
+    padding: 10px 15px;
+    position: relative;
+    display: block;
 }
 ul.labels-info li a:hover, ul.labels-info li a:focus {
     background: none repeat scroll 0 0 #d5d7de;
@@ -363,4 +366,3 @@ ul {
     padding: 0px;
     margin: 0px;
 }
- 
