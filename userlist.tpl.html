@@ -1,0 +1,5 @@
+<li ng-repeat="user in $ctrl.userlist">
+    <a ui-sref="usercard({ userId: user._id })">
+        <i class=" fa fa-circle text-success "></i>{{user.fullName}}
+    </a>
+</li>
