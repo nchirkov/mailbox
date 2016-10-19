@@ -1,0 +1,30 @@
+<div class="container">
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <div class="mail-box">
+        <aside class="sm-side">
+            <div class="user-head">
+                <div class="user-name">
+                    <h5><a href="#">Nikita Chirkov</a></h5>
+                    <span><a href="#">chirkov.nikita@gmail.com</a></span>
+                </div>
+            </div>
+            <ul class="inbox-nav inbox-divider">
+                <mailboxes />
+            </ul>
+            <ul class="nav nav-pills nav-stacked labels-info">
+                <li>
+                    <h4>Список контактов</h4>
+                </li>
+                <userlist />
+            </ul>
+        </aside>
+        <aside class="lg-side">
+            <div class="inbox-head">
+                <h3>Входящие</h3>
+            </div>
+            <div class="inbox-body">
+                <ui-view></ui-view>
+            </div>
+        </aside>
+    </div>
+</div>
