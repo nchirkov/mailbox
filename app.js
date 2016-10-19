@@ -1,6 +1,10 @@
 angular.module('mailBoxApp', ['ui.router'])
     .config(function($stateProvider) {
-        $stateProvider.state('mailbox', {
+        $stateProvider.state('home', {
+                url: '',
+                component: 'home',
+            })
+            .state('home.mailbox', {
                 url: '/mailbox/{mailboxId}',
                 component: 'mailbox',
                 resolve: {
@@ -9,7 +13,7 @@ angular.module('mailBoxApp', ['ui.router'])
                     }
                 }
             })
-            .state('mailbox.mail', {
+            .state('home.mailbox.mail', {
                 url: '/{mailId}',
                 component: 'mail',
                 resolve: {
@@ -20,7 +24,7 @@ angular.module('mailBoxApp', ['ui.router'])
                     }
                 }
             })
-            .state('usercard', {
+            .state('home.usercard', {
                 url: '/users/{userId}',
                 component: 'usercard',
                 resolve: {
@@ -29,6 +33,19 @@ angular.module('mailBoxApp', ['ui.router'])
                     }
                 }
             })
+            .state('login', {
+                url: '/login',
+                component: 'login'
+            })
+    })
+    .run(($transitions, AuthService) => {
+        $transitions.onEnter({
+            to: '**'
+        }, function($transition$, $state$) {
+            if ($state$.name !== 'login' && !AuthService.isAuthenticated()) {
+                return $transition$.router.stateService.target('login');
+            }
+        })
     })
     .service('MailService', function($http) {
         this.getBox = (id) => {
@@ -51,6 +68,21 @@ angular.module('mailBoxApp', ['ui.router'])
             return $http.get('https://test-api.javascript.ru/v1/nchirkov/users/' + id)
                 .then(response => response.data)
         }
+    })
+    .service('AuthService', function() {
+        let isAuthenticated = false;
+
+        this.authenticate = (email, password) => {
+            if (email === 'test@test.ru' && password === '123') {
+                isAuthenticated = true;
+            } else {
+                isAuthenticated = false;
+            }
+        };
+
+        this.isAuthenticated = () => {
+            return isAuthenticated;
+        };
     })
     .component('mailboxes', {
         controller: function(MailService) {
@@ -81,4 +113,16 @@ angular.module('mailBoxApp', ['ui.router'])
             user: '<'
         },
         templateUrl: 'usercard.tpl.html'
+    })
+    .component('home', {
+        templateUrl: 'home.tpl.html'
+    })
+    .component('login', {
+        controller: function(AuthService, $state) {
+            this.authenticate = () => {
+                AuthService.authenticate(this.email, this.password);
+                $state.go('home');
+            }
+        },
+        templateUrl: 'login.tpl.html'
     });
