@@ -23,9 +23,9 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }
             })
-            .state('home.usercard', {
+            .state('home.userdetails', {
                 url: 'users/details/{userId}',
-                component: 'usercard',
+                component: 'userdetails',
                 resolve: {
                     user: function(UserService, $stateParams) {
                         return UserService.getUser($stateParams.userId);

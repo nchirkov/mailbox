@@ -1,4 +1,3 @@
-mailBoxApp.component('usercard', {
     bindings: {
         user: '<'
     },
@@ -10,5 +9,4 @@ mailBoxApp.component('usercard', {
                 }));
         }
     },
-    templateUrl: 'Templates\\usercard.tpl.html'
 })
