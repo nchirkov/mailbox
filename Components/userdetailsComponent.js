@@ -1,3 +1,4 @@
+mailBoxApp.component('userdetails', {
     bindings: {
         user: '<'
     },
@@ -9,4 +10,5 @@
                 }));
         }
     },
+    templateUrl: 'Templates\\userdetails.tpl.html'
 })
