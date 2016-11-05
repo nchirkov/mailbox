@@ -32,6 +32,10 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }
             })
+            .state('home.useradd', {
+                url: 'usersadd',
+                component: 'useradd'
+            })
             .state('login', {
                 url: '/login',
                 component: 'login'

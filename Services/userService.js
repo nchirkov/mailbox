@@ -8,4 +8,14 @@ mailBoxApp.service('UserService', function($http) {
         return $http.get('https://test-api.javascript.ru/v1/nchirkov/users/' + id)
             .then(response => response.data)
     }
+
+    this.addUser = (user) => {
+        return $http.post('https://test-api.javascript.ru/v1/nchirkov/users/', user)
+            .then(response => response.data)
+    }
+
+    this.deleteUser = (id) => {
+        return $http.delete('https://test-api.javascript.ru/v1/nchirkov/users/' + id)
+            .then(response => response.data)
+    }
 })
