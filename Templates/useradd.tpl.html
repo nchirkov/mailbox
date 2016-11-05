@@ -1,13 +1,29 @@
-<div class="container">
-    <form>
-      <div class="form-group">
-          <label for="inputName" class="sr-only">Полное имя</label>
-          <!-- <input type="text" id="inputName" class="form-control" placeholder="Полное имя" required="" autofocus="" ng-model="$ctrl.fullname"> -->
-      </div>
-        <div class="form-group">
-            <label for="inputEmail" class="sr-only">Адрес электронной почты</label>
-            <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Адрес электронной почты" required="" autofocus="" ng-model="$ctrl.email"> -->
+<form name="useradd">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Полное имя" required autofocus ng-required="true" ng-model="$ctrl.fullName">
+    </div>
+    <div class="form-group">
+        <input type="email" class="form-control" placeholder="Адрес электронной почты" required autofocus ng-required="true" ng-model="$ctrl.email">
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" placeholder="Дата рождения" required autofocus ng-required="true" ng-model="$ctrl.birthdate">
+    </div>
+    <div class="form-group">
+        <div class="radio">
+            <label>
+                    <input type="radio" ng-required="true" ng-model="$ctrl.gender" value="M">
+                    Мужской
+                </label>
         </div>
-        <button class="btn btn-lg btn-block btn-signin" type="submit" ng-click="$ctrl.addUser()">Сохранить</button>
-    </form>
-</div>
+        <div class="radio">
+            <label>
+                    <input type="radio" ng-required="true" ng-model="$ctrl.gender" value="F">
+                    Женский
+                </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Адрес" required autofocus ng-required="true" ng-model="$ctrl.address">
+    </div>
+    <button class="btn btn-lg btn-block btn-signin" type="submit" ng-click="useradd.$valid && $ctrl.addUser()">Сохранить</button>
+</form>
