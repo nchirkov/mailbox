@@ -1,4 +1,4 @@
-mailBoxApp.component('useradd', {
+mailBoxApp.component('useredit', {
     bindings: {
         user: '<'
     },
@@ -17,5 +17,5 @@ mailBoxApp.component('useradd', {
             }
         }
     },
-    templateUrl: 'Templates\\useradd.tpl.html'
+    templateUrl: 'Templates\\useredit.tpl.html'
 })

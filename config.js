@@ -32,7 +32,7 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }
             })
-            .state('home.useradd', {
+            .state('home.useredit', {
                 url: 'users/edit/{userId}',
                 params: {
                     userId: {
@@ -40,7 +40,7 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                         squash: true
                     }
                 },
-                component: 'useradd',
+                component: 'useredit',
                 resolve: {
                     user: function(UserService, $stateParams) {
                         if ($stateParams.userId === null) {
