@@ -2,7 +2,13 @@ mailBoxApp.component('useredit', {
     bindings: {
         user: '<'
     },
-    controller: function(UserService, $state) {
+    controller: function(UserService, HeaderService, $state) {
+        if (this.user._id === null) {
+            HeaderService.setTitle('Новый пользователь');
+        } else {
+            HeaderService.setTitle(this.user.fullName);
+        }
+
         this.saveChanges = () => {
             if (this.user._id === null) {
                 UserService.addUser(this.user).then(() =>

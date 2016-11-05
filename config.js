@@ -9,7 +9,10 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                 resolve: {
                     mailbox: function(MailService, $stateParams) {
                         return MailService.getBox($stateParams.mailboxId);
-                    }
+                    },
+                    title: function(MailService, $stateParams) {
+                        return MailService.getTitle($stateParams.mailboxId);
+                    },
                 }
             })
             .state('home.mailbox.mail', {
