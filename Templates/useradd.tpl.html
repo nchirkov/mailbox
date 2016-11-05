@@ -1,29 +1,29 @@
 <form name="useradd">
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Полное имя" required autofocus ng-required="true" ng-model="$ctrl.fullName">
+        <input type="text" class="form-control" placeholder="Полное имя" required autofocus ng-required="true" ng-model="$ctrl.user.fullName">
     </div>
     <div class="form-group">
-        <input type="email" class="form-control" placeholder="Адрес электронной почты" required autofocus ng-required="true" ng-model="$ctrl.email">
+        <input type="email" class="form-control" placeholder="Адрес электронной почты" required autofocus ng-required="true" ng-model="$ctrl.user.email">
     </div>
     <div class="form-group">
-        <input type="date" class="form-control" placeholder="Дата рождения" required autofocus ng-required="true" ng-model="$ctrl.birthdate">
+        <input date-input type="date" class="form-control" placeholder="Дата рождения" required autofocus ng-required="true" ng-model="$ctrl.user.birthdate">
     </div>
     <div class="form-group">
         <div class="radio">
             <label>
-                    <input type="radio" ng-required="true" ng-model="$ctrl.gender" value="M">
+                    <input type="radio" ng-required="!$ctrl.user.gender" ng-model="$ctrl.user.gender" value="M">
                     Мужской
                 </label>
         </div>
         <div class="radio">
             <label>
-                    <input type="radio" ng-required="true" ng-model="$ctrl.gender" value="F">
+                    <input type="radio" ng-required="!$ctrl.user.gender" ng-model="$ctrl.user.gender" value="F">
                     Женский
                 </label>
         </div>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" placeholder="Адрес" required autofocus ng-required="true" ng-model="$ctrl.address">
+        <input type="text" class="form-control" placeholder="Адрес" required autofocus ng-required="true" ng-model="$ctrl.user.address">
     </div>
-    <button class="btn btn-lg btn-block btn-signin" type="submit" ng-click="useradd.$valid && $ctrl.addUser()">Сохранить</button>
+    <button class="btn btn-lg btn-block btn-signin" type="submit" ng-click="useradd.$valid && $ctrl.saveChanges()">Сохранить</button>
 </form>

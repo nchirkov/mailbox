@@ -24,7 +24,7 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             })
             .state('home.usercard', {
-                url: 'users/{userId}',
+                url: 'users/details/{userId}',
                 component: 'usercard',
                 resolve: {
                     user: function(UserService, $stateParams) {
@@ -33,8 +33,24 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                 }
             })
             .state('home.useradd', {
-                url: 'usersadd',
-                component: 'useradd'
+                url: 'users/edit/{userId}',
+                params: {
+                    userId: {
+                        value: null,
+                        squash: true
+                    }
+                },
+                component: 'useradd',
+                resolve: {
+                    user: function(UserService, $stateParams) {
+                        if ($stateParams.userId === null) {
+                            return {
+                                "_id": null
+                            };
+                        }
+                        return UserService.getUser($stateParams.userId);
+                    }
+                }
             })
             .state('login', {
                 url: '/login',
