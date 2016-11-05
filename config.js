@@ -9,7 +9,10 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                 resolve: {
                     mailbox: function(MailService, $stateParams) {
                         return MailService.getBox($stateParams.mailboxId);
-                    }
+                    },
+                    title: function(MailService, $stateParams) {
+                        return MailService.getTitle($stateParams.mailboxId);
+                    },
                 }
             })
             .state('home.mailbox.mail', {
@@ -23,11 +26,31 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }
             })
-            .state('home.usercard', {
-                url: 'users/{userId}',
-                component: 'usercard',
+            .state('home.userdetails', {
+                url: 'users/details/{userId}',
+                component: 'userdetails',
                 resolve: {
                     user: function(UserService, $stateParams) {
+                        return UserService.getUser($stateParams.userId);
+                    }
+                }
+            })
+            .state('home.useredit', {
+                url: 'users/edit/{userId}',
+                params: {
+                    userId: {
+                        value: null,
+                        squash: true
+                    }
+                },
+                component: 'useredit',
+                resolve: {
+                    user: function(UserService, $stateParams) {
+                        if ($stateParams.userId === null) {
+                            return {
+                                "_id": null
+                            };
+                        }
                         return UserService.getUser($stateParams.userId);
                     }
                 }
