@@ -23,5 +23,5 @@ mailBoxApp.component('useredit', {
             }
         }
     },
-    templateUrl: 'Templates\\useredit.tpl.html'
+    templateUrl: 'users\\user-edit\\user-edit.tpl.html'
 })

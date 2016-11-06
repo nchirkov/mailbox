@@ -55,9 +55,9 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
                     }
                 }
             })
-            .state('login', {
-                url: '/login',
-                component: 'login'
+            .state('auth', {
+                url: '/auth',
+                component: 'auth'
             })
         $urlRouterProvider.otherwise('/');
     })
@@ -65,8 +65,8 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
         $transitions.onEnter({
             to: '**'
         }, function($transition$, $state$) {
-            if ($state$.name !== 'login' && !AuthService.isAuthenticated()) {
-                return $transition$.router.stateService.target('login');
+            if ($state$.name !== 'auth' && !AuthService.isAuthenticated()) {
+                return $transition$.router.stateService.target('auth');
             }
         })
     })

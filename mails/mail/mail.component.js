@@ -2,5 +2,5 @@ mailBoxApp.component('mail', {
     bindings: {
         mail: '<'
     },
-    templateUrl: 'Templates\\mail.tpl.html'
+    templateUrl: 'mails\\mail\\mail.tpl.html'
 })

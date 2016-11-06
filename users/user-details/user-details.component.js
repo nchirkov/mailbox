@@ -12,5 +12,5 @@ mailBoxApp.component('userdetails', {
                 }));
         }
     },
-    templateUrl: 'Templates\\userdetails.tpl.html'
+    templateUrl: 'users\\user-details\\user-details.tpl.html'
 })

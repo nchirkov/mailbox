@@ -1,8 +1,8 @@
-mailBoxApp.component('header', {
+mailBoxApp.component('titleheader', {
     controller: function(HeaderService) {
         HeaderService.getTitle((title) => {
             this.title = title;
         });
     },
-    templateUrl: 'Templates\\header.tpl.html'
+    templateUrl: 'header\\title-header\\title-header.tpl.html'
 })

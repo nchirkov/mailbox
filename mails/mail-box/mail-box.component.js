@@ -6,5 +6,5 @@ mailBoxApp.component('mailbox', {
     controller: function(HeaderService) {
         HeaderService.setTitle(this.title);
     },
-    templateUrl: 'Templates\\mailbox.tpl.html'
+    templateUrl: 'mails\\mail-box\\mail-box.tpl.html'
 })
