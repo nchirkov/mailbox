@@ -1,9 +1,12 @@
 mailBoxApp.component('login', {
     controller: function(AuthService, HeaderService, $state) {
         this.authenticate = () => {
-            AuthService.authenticate(this.email, this.password);
-            HeaderService.setEmail(this.email);
-            $state.go('home');
+            if (AuthService.authenticate(this.email, this.password)) {
+                HeaderService.setEmail(this.email);
+                $state.go('home');
+            } else {
+              this.invalidLogin = true;
+            }
         }
     },
     templateUrl: 'Templates\\login.tpl.html'
