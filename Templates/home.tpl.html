@@ -20,7 +20,12 @@
         </aside>
         <aside class="lg-side">
             <div class="inbox-head">
-                <header />
+                <div class="inbox-title">
+                    <header />
+                </div>
+                <div class="inbox-logout pull-right">
+                    <a href="#" class="logout" ng-click="$ctrl.logout()">Выйти</a>
+                </div>
             </div>
             <div class="inbox-body">
                 <ui-view></ui-view>
