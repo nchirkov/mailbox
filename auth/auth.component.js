@@ -1,4 +1,4 @@
-mailBoxApp.component('login', {
+mailBoxApp.component('auth', {
     controller: function(AuthService, HeaderService, $state) {
         this.authenticate = () => {
             if (AuthService.authenticate(this.email, this.password)) {
@@ -9,5 +9,5 @@ mailBoxApp.component('login', {
             }
         }
     },
-    templateUrl: 'Templates\\login.tpl.html'
+    templateUrl: 'auth\\auth.tpl.html'
 })

@@ -2,8 +2,8 @@ mailBoxApp.component('home', {
     controller: function(AuthService, $state) {
         this.logout = () => {
             AuthService.logout();
-            $state.go('login');
+            $state.go('auth');
         }
     },
-    templateUrl: 'Templates\\home.tpl.html'
+    templateUrl: 'home\\home.tpl.html'
 })
