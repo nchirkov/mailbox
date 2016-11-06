@@ -1,6 +1,13 @@
 mailBoxApp.component('mailboxes', {
-    controller: function(MailService) {
-        MailService.getBoxes().then(boxes => this.boxes = boxes)
+    controller: function(MailService, $state, $filter) {
+        MailService.getBoxes().then(boxes => {
+            let orderedBoxes = $filter('orderBy')(boxes, '_id');
+            
+            this.boxes = orderedBoxes;
+            $state.go('home.mailbox', {
+                "mailboxId": orderedBoxes[0]._id
+            });
+        })
     },
     templateUrl: 'Templates\\mailboxes.tpl.html'
 })

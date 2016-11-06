@@ -61,6 +61,9 @@ a.mail-dropdown {
     margin-top: 20px;
     padding: 3px 5px;
 }
+a.logout {
+  color: #fff;
+}
 .inbox-body {
     padding: 20px;
 }
@@ -153,6 +156,12 @@ ul.labels-info li a i {
     color: #fff;
     min-height: 80px;
     padding: 20px;
+}
+.inbox-title {
+  display: inline-block;
+}
+.inbox-logout {
+  padding: 10px;
 }
 .inbox-head h3 {
     display: inline-block;

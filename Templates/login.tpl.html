@@ -1,14 +1,22 @@
 <div class="container">
-    <form class="form-signin">
+    <div class="alert alert-info">
+        <span>Логин: test@test.ru</span>
+        <br>
+        <span>Пароль: 123</span>
+    </div>
+    <div class="alert alert-danger" ng-if="$ctrl.invalidLogin">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Неправильный логин или пароль!
+    </div>
+    <form class="form-signin" name="login">
         <h2 class="form-signin-heading">Войти</h2>
         <div class="form-group">
             <label for="inputEmail" class="sr-only">Адрес электронной почты</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Адрес электронной почты" required="" autofocus="" ng-model="$ctrl.email">
+            <input type="email" id="inputEmail" class="form-control" placeholder="Адрес электронной почты" required autofocus ng-required="true" ng-model="$ctrl.email">
         </div>
         <div class="form-group">
             <label for="inputPassword" class="sr-only">Пароль</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="" ng-model="$ctrl.password">
+            <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required ng-required="true" ng-model="$ctrl.password">
         </div>
-        <button class="btn btn-lg btn-block btn-signin" type="submit" ng-click="$ctrl.authenticate()">Войти</button>
+        <button class="btn btn-lg btn-block btn-signin" type="submit" ng-click="login.$valid && $ctrl.authenticate()">Войти</button>
     </form>
 </div>
