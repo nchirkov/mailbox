@@ -12,7 +12,6 @@ mailBoxApp.service('AuthService', function() {
     };
 
     this.isAuthenticated = () => {
-        // return true;
         return isAuthenticated;
     };
 

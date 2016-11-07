@@ -65,8 +65,17 @@ mailBoxApp.config(function($stateProvider, $urlRouterProvider) {
         $transitions.onEnter({
             to: '**'
         }, function($transition$, $state$) {
-            if ($state$.name !== 'auth' && !AuthService.isAuthenticated()) {
+            let isAuthenticated = AuthService.isAuthenticated();
+            let isAuthState = $state$.name === 'auth';
+
+            if (!isAuthenticated && !isAuthState) {
                 return $transition$.router.stateService.target('auth');
+            }
+
+            if (isAuthenticated && isAuthState) {
+                return $transition$.router.stateService.target('home', {}, {
+                    reload: true
+                });
             }
         })
     })
