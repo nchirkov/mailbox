@@ -1,14 +1,13 @@
-mailBoxApp.service('AuthService', function() {
+mailBoxApp.service('AuthService', function($q) {
     let isAuthenticated = false;
 
     this.authenticate = (email, password) => {
         if (email === 'test@test.ru' && password === '123') {
             isAuthenticated = true;
+            return $q.resolve(true);
         } else {
-            isAuthenticated = false;
+            return $q.resolve(false);
         }
-
-        return isAuthenticated;
     };
 
     this.isAuthenticated = () => {
